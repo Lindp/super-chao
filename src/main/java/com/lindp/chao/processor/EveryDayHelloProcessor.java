@@ -1,7 +1,5 @@
 package com.lindp.chao.processor;
 
-import com.lindp.chao.common.ChaoConsts;
-import com.lindp.chao.utils.AlibabaSmsUtils;
 import htjar.utils.DateUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
@@ -50,10 +48,10 @@ public class EveryDayHelloProcessor implements PageProcessor {
         fortune = StringUtils.removeEnd(fortune, "！");
         String fortuneContent = String.format("%s。今日运势：%s", goodLuck, fortune);
         if (StringUtils.isNotBlank(flag) && flag.equals("aquarius") && StringUtils.isNotBlank(fortuneContent)) { // 水瓶座
-            AlibabaSmsUtils.sendGoodMorning(ChaoConsts.LINDP_PHONE, fortuneContent, dayNumber);
+//            AlibabaSmsUtils.sendGoodMorning(ChaoConsts.LINDP_PHONE, fortuneContent, dayNumber);
         }
         if (StringUtils.isNotBlank(flag) && flag.equals("leo") && StringUtils.isNotBlank(fortuneContent)) { // 狮子座
-            AlibabaSmsUtils.sendGoodMorning(ChaoConsts.CHAO_PHONE, fortuneContent, dayNumber);
+//            AlibabaSmsUtils.sendGoodMorning(ChaoConsts.CHAO_PHONE, fortuneContent, dayNumber);
         }
 
         log.info("早上好亲爱的！今日的幸运数字是{}。今天是我们在一起的第{}天。愿你一天好心情！", fortuneContent, dayNumber);

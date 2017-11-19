@@ -8,10 +8,10 @@ package com.lindp.chao.common;
  */
 public class ChaoConsts {
 
-    public static final String LINDP_PHONE = "18563807989";
-    public static final String CHAO_PHONE = "18369190009";
+    public static final String LINDP_PHONE = "1";
+    public static final String CHAO_PHONE = "1";
 
     // 阿里短信KEY
-    public static final String ACCESS_KEY_ID = "LTAI4wMUcfY0SrYl";
-    public static final String ACCESS_KEY_SECRET = "g4YP5GznSrm3TCfNMKkwAyAxfUVDmX";
+    public static final String ACCESS_KEY_ID = "1";
+    public static final String ACCESS_KEY_SECRET = "1";
 }
