@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--<bean id="propertiesConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+        <!--<property name="locations">-->
+            <!--<list>-->
+                <!--<value>classpath:config/application.properties</value>-->
+                <!--<value>classpath:config/jdbc.properties</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!-- 扫描所有com.ht包下的注解 -->
+    <context:component-scan base-package="com.lindp,htjar">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">-->
+        <!--<property name="driverClassName" value="${jdbc.driver}"/>-->
+        <!--<property name="url" value="${jdbc.url}"/>-->
+        <!--<property name="username" value="${jdbc.username}"/>-->
+        <!--<property name="password" value="${jdbc.password}"/>-->
+        <!--<property name="initialSize" value="${jdbc.initialSize}"/>-->
+        <!--<property name="minIdle" value="${jdbc.minIdle}"/>-->
+        <!--<property name="maxActive" value="${jdbc.maxActive}"/>-->
+        <!--<property name="maxWait" value="${jdbc.maxWait}"/>-->
+        <!--<property name="timeBetweenEvictionRunsMillis" value="${jdbc.timeBetweenEvictionRunsMillis}"/>-->
+        <!--<property name="minEvictableIdleTimeMillis" value="${jdbc.minEvictableIdleTimeMillis}"/>-->
+        <!--<property name="validationQuery" value="${jdbc.validationQuery}"/>-->
+        <!--<property name="testWhileIdle" value="${jdbc.testWhileIdle}"/>-->
+        <!--<property name="testOnBorrow" value="${jdbc.testOnBorrow}"/>-->
+        <!--<property name="testOnReturn" value="${jdbc.testOnReturn}"/>-->
+        <!--<property name="poolPreparedStatements" value="${jdbc.poolPreparedStatements}"/>-->
+        <!--<property name="maxPoolPreparedStatementPerConnectionSize" value="${jdbc.maxPoolPreparedStatementPerConnectionSize}"/>-->
+        <!--<property name="filters" value="${jdbc.filters}"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="sqlSessionFactoryBean" class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+        <!--<property name="configLocation" value="classpath:mybatis/mybatis.xml"/>-->
+        <!--<property name="mapperLocations" value="classpath*:mapper/**/*.xml"/>-->
+        <!--&lt;!&ndash; 插件配置 &ndash;&gt;-->
+        <!--<property name="plugins">-->
+            <!--<array>-->
+                <!--&lt;!&ndash; 分页插件配置, 参考文档分页插件部分！！ &ndash;&gt;-->
+                <!--&lt;!&ndash; 如需要开启其他插件，可配置于此 &ndash;&gt;-->
+            <!--</array>-->
+        <!--</property>-->
+
+        <!--&lt;!&ndash; MP 全局配置注入 &ndash;&gt;-->
+        <!--<property name="globalConfig" ref="globalConfig"/>-->
+    <!--</bean>-->
+
+
+    <!--&lt;!&ndash; 定义 MP 全局策略 &ndash;&gt;-->
+    <!--<bean id="globalConfig" class="com.baomidou.mybatisplus.entity.GlobalConfiguration">-->
+        <!--&lt;!&ndash; 主键策略配置 &ndash;&gt;-->
+        <!--&lt;!&ndash; 可选参数-->
+            <!--AUTO->`0`("数据库ID自增")-->
+            <!--INPUT->`1`(用户输入ID")-->
+            <!--ID_WORKER->`2`("全局唯一ID")-->
+            <!--UUID->`3`("全局唯一ID")-->
+        <!--&ndash;&gt;-->
+        <!--<property name="idType" value="3"/>-->
+
+        <!--&lt;!&ndash; 数据库类型配置 &ndash;&gt;-->
+        <!--&lt;!&ndash; 可选参数（默认mysql）-->
+            <!--MYSQL->`mysql`-->
+            <!--ORACLE->`oracle`-->
+            <!--DB2->`db2`-->
+            <!--H2->`h2`-->
+            <!--HSQL->`hsql`-->
+            <!--SQLITE->`sqlite`-->
+            <!--POSTGRE->`postgresql`-->
+            <!--SQLSERVER2005->`sqlserver2005`-->
+            <!--SQLSERVER->`sqlserver`-->
+        <!--&ndash;&gt;-->
+        <!--<property name="dbType" value="mysql"/>-->
+
+        <!--&lt;!&ndash; 全局表为下划线命名设置 true &ndash;&gt;-->
+        <!--<property name="dbColumnUnderline" value="true"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; MyBatis 动态扫描  &ndash;&gt;-->
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.lindp.chao.*.mapper"/>-->
+        <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
+
+    <!--<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>-->
+
+    <task:annotation-driven/>
+
+</beans>

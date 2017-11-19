@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//wycore-mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--框架设置-->
+    <settings>
+        <!-- 设置MyBatis日志类型 -->
+        <setting name="logImpl" value="SLF4J"/>
+
+        <!-- 使用驼峰命名法转换字段 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <!--别名设置-->
+    <typeAliases>
+    </typeAliases>
+
+    <plugins>
+        <!--
+         | 分页插件配置
+         | 插件提供二种方言选择：1、默认方言 2、自定义方言实现类，两者均未配置则抛出异常！
+         | overflowCurrent 溢出总页数，设置第一页 默认false
+         | optimizeType Count优化方式 （ 版本 2.0.9 改为使用 jsqlparser 不需要配置 ）
+         | -->
+        <!-- 注意!! 如果要支持二级缓存分页使用类 CachePaginationInterceptor 默认、建议如下！！ -->
+        <plugin interceptor="com.baomidou.mybatisplus.plugins.PaginationInterceptor">
+            <!--<property name="localPage" value="默认 false 改为 true 开启了 pageHeper 支持、可以没有"/>-->
+            <!--<property name="dialectClazz" value="自定义方言类、可以没有"/>-->
+        </plugin>
+    </plugins>
+
+</configuration>
